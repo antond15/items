@@ -3,3 +3,21 @@ body {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 }
+
+::-webkit-scrollbar {
+	background-color: transparent;
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--chakra-colors-gray-700);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--chakra-colors-gray-600);
+	border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--chakra-colors-gray-500);
+}
