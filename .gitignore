@@ -1,0 +1,10 @@
+# Dependencies
+node_modules
+pnpm-debug.log*
+
+# Production
+build
+
+# Misc
+.env
+.env.development
