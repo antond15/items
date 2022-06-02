@@ -45,7 +45,7 @@ const InfoPopover: React.FC<ItemProps> = (props) => {
             </Tooltip>
 
             <Tooltip hasArrow label="Save image" bg="gray.300" color="black">
-              <IconButton colorScheme="green" aria-label="Save image" icon={<FaSave />} />
+              <IconButton isDisabled colorScheme="green" aria-label="Save image" icon={<FaSave />} />
             </Tooltip>
           </ButtonGroup>
         </PopoverFooter>
