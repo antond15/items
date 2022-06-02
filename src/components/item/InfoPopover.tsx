@@ -12,9 +12,12 @@ import {
   IconButton,
   Tooltip,
   Link,
+  Tag,
+  HStack,
 } from '@chakra-ui/react';
 import { FaExternalLinkAlt, FaSave } from 'react-icons/fa';
 import { ItemProps } from '../../typings/item';
+import { tags } from '../../data/tags';
 
 const InfoPopover: React.FC<ItemProps> = (props) => {
   return (
@@ -29,7 +32,13 @@ const InfoPopover: React.FC<ItemProps> = (props) => {
         <PopoverArrow bg="gray.700" />
 
         <PopoverHeader fontWeight="semibold" color="gray.300" border="none">
-          {props.label}
+          <HStack spacing={1}>
+            <span>{props.label}</span>
+            {props.tags.map((tagName, key) => {
+              const tag = tags[tagName];
+              return tag && <Tag key={key} size='sm' bg={tag.color}>{tag.label}</Tag>;
+            })}
+          </HStack>
         </PopoverHeader>
 
         {props.description && (
