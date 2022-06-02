@@ -1,6 +1,6 @@
 import React from 'react';
 import { SimpleGrid, Flex, Box } from '@chakra-ui/react';
-import ItemImage from '../item/ItemImage';
+import Item from '../item/Item';
 import { items } from '../../data/items';
 
 const MainGrid: React.FC = () => {
@@ -10,7 +10,7 @@ const MainGrid: React.FC = () => {
         <Flex justifyContent="center">
           <SimpleGrid columns={5} spacingX="5px" spacingY="5px" w="fit-content">
             {items.map((data) => (
-              <ItemImage {...data} />
+              <Item {...data} />
             ))}
           </SimpleGrid>
         </Flex>
