@@ -33,13 +33,15 @@ const ItemImage: React.FC<ItemProps> = (props) => {
             {props.label}
           </Box>
         </PopoverTrigger>
-        <PopoverContent textAlign="left">
-          <PopoverArrow />
-          <PopoverHeader fontWeight="semibold">{props.label}</PopoverHeader>
-          <PopoverBody>
+        <PopoverContent textAlign="left" bg="gray.700" borderColor="gray.500">
+          <PopoverArrow bg="gray.700" />
+          <PopoverHeader fontWeight="semibold" color="gray.300" border="none" pb={0}>
+            {props.label}
+          </PopoverHeader>
+          <PopoverBody color="gray.100">
             <Box>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, culpa.</Box>
           </PopoverBody>
-          <PopoverFooter>
+          <PopoverFooter borderColor="gray.500">
             <ButtonGroup size="sm">
               <Tooltip hasArrow label="Open source" bg="gray.300" color="black">
                 <Link href={props.source} isExternal>
