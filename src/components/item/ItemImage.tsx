@@ -1,5 +1,21 @@
 import React from 'react';
-import { Stack, Image, Box, Popover, PopoverArrow, PopoverBody, PopoverContent, PopoverHeader, PopoverTrigger } from '@chakra-ui/react';
+import {
+  Stack,
+  Image,
+  Box,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  ButtonGroup,
+  IconButton,
+  Tooltip,
+  Link,
+} from '@chakra-ui/react';
+import { FaExternalLinkAlt, FaSave } from 'react-icons/fa';
 
 type ItemProps = {
   label: string;
@@ -23,6 +39,18 @@ const ItemImage: React.FC<ItemProps> = (props) => {
           <PopoverBody>
             <Box>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, culpa.</Box>
           </PopoverBody>
+          <PopoverFooter>
+            <ButtonGroup size="sm">
+              <Tooltip hasArrow label="Open source" bg="gray.300" color="black">
+                <Link href={props.source} isExternal>
+                  <IconButton colorScheme="gray" aria-label="Open source" icon={<FaExternalLinkAlt />} />
+                </Link>
+              </Tooltip>
+              <Tooltip hasArrow label="Save image" bg="gray.300" color="black">
+                <IconButton colorScheme="green" aria-label="Save image" icon={<FaSave />} />
+              </Tooltip>
+            </ButtonGroup>
+          </PopoverFooter>
         </PopoverContent>
       </Popover>
     </Stack>
