@@ -3,6 +3,7 @@ export const items = [
     label: 'Big slice of onion',
     source: 'https://cdn.discordapp.com/attachments/751544501377695764/981651305103769610/onion.png',
     tags: ['food', 'fruit'],
+    description: 'The onion is a vegetable that is the most widely cultivated species of the genus Allium.',
   },
   {
     label: 'Paperbag',

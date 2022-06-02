@@ -28,13 +28,15 @@ const InfoPopover: React.FC<ItemProps> = (props) => {
       <PopoverContent textAlign="left" bg="gray.700" borderColor="gray.500">
         <PopoverArrow bg="gray.700" />
 
-        <PopoverHeader fontWeight="semibold" color="gray.300" border="none" pb={0}>
+        <PopoverHeader fontWeight="semibold" color="gray.300" border="none">
           {props.label}
         </PopoverHeader>
 
-        <PopoverBody color="gray.100">
-          <Box>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos, culpa.</Box>
-        </PopoverBody>
+        {props.description && (
+          <PopoverBody color="gray.100" pt={0}>
+            <Box>{props.description}</Box>
+          </PopoverBody>
+        )}
 
         <PopoverFooter borderColor="gray.500">
           <ButtonGroup size="sm">
