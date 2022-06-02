@@ -1,4 +1,6 @@
-export const items = [
+import { ItemProps } from '../typings/item';
+
+export const items: ItemProps[] = [
   {
     label: 'Big slice of onion',
     source: 'https://cdn.discordapp.com/attachments/751544501377695764/981651305103769610/onion.png',
