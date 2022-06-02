@@ -36,7 +36,13 @@ const InfoPopover: React.FC<ItemProps> = (props) => {
             <span>{props.label}</span>
             {props.tags.map((tagName, key) => {
               const tag = tags[tagName];
-              return tag && <Tag key={key} size='sm' bg={tag.color}>{tag.label}</Tag>;
+              return (
+                tag && (
+                  <Tag key={key} size="sm" bg={tag.color}>
+                    {tag.label}
+                  </Tag>
+                )
+              );
             })}
           </HStack>
         </PopoverHeader>
