@@ -16,12 +16,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { FaExternalLinkAlt, FaSave } from 'react-icons/fa';
-
-type ItemProps = {
-  label: string;
-  source: string;
-  tags: string[];
-};
+import { ItemProps } from '../../typings/item';
 
 const ItemImage: React.FC<ItemProps> = (props) => {
   return (
