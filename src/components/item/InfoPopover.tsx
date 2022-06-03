@@ -9,15 +9,13 @@ import {
   PopoverBody,
   PopoverFooter,
   ButtonGroup,
-  IconButton,
   Tooltip,
   Link,
-  Tag,
-  Flex,
+  IconButton,
 } from '@chakra-ui/react';
+import Tags from './Tags';
 import { FaExternalLinkAlt, FaSave } from 'react-icons/fa';
 import { ItemProps } from '../../typings/item';
-import { tags } from '../../data/tags';
 
 const InfoPopover: React.FC<ItemProps & { name: string }> = (props) => {
   const imageUrl = `${process.env.PUBLIC_URL}/assets/images/${props.name}.png`;
@@ -36,18 +34,7 @@ const InfoPopover: React.FC<ItemProps & { name: string }> = (props) => {
         <PopoverHeader fontWeight="semibold" color="gray.300" border="none">
           <>
             {props.label}
-            <Flex mt={1.5} wrap="wrap">
-              {props.tags.map((name, key) => {
-                const tag = tags[name];
-                return (
-                  tag && (
-                    <Tag key={key} size="sm" bg={tag.color} mr={0.5} mt={0.5}>
-                      {tag.label}
-                    </Tag>
-                  )
-                );
-              })}
-            </Flex>
+            <Tags tags={props.tags} />
           </>
         </PopoverHeader>
 
