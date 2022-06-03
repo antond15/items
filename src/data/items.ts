@@ -8,7 +8,7 @@ export const items: ItemInterface = {
   },
   paperbag: {
     label: 'Paperbag',
-    tags: ['food', 'fruit'],
+    tags: ['other'],
     description: 'Useful for carrying groceries.',
   },
   'ammo-9': {
