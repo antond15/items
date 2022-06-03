@@ -19,7 +19,7 @@ specifiers:
   prettier: ^2.6.2
   react: ^18.1.0
   react-dom: ^18.1.0
-  react-icons: ^3.11.0
+  react-icons: ^4.4.0
   react-scripts: 5.0.1
   sass: ^1.52.1
   typescript: ^4.7.2
@@ -39,7 +39,7 @@ dependencies:
   framer-motion: 6.3.6_ef5jwxihqo6n7gxfmzogljlgcm
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
-  react-icons: 3.11.0_react@18.1.0
+  react-icons: 4.4.0_react@18.1.0
   react-scripts: 5.0.1_4vkndbtt5rcyevxvbfku6p3way
   typescript: 4.7.2
   web-vitals: 0.2.4
@@ -9082,12 +9082,11 @@ packages:
       use-sidecar: 1.1.2_4mg53anm6bsgggist7tcqrzb4y
     dev: false
 
-  /react-icons/3.11.0_react@18.1.0:
-    resolution: {integrity: sha512-JRgiI/vdF6uyBgyZhVyYJUZAop95Sy4XDe/jmT3R/bKliFWpO/uZBwvSjWEdxwzec7SYbEPNPck0Kff2tUGM2Q==}
+  /react-icons/4.4.0_react@18.1.0:
+    resolution: {integrity: sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==}
     peerDependencies:
       react: '*'
     dependencies:
-      camelcase: 5.3.1
       react: 18.1.0
     dev: false
 
