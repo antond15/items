@@ -20,6 +20,8 @@ import { ItemProps } from '../../typings/item';
 import { tags } from '../../data/tags';
 
 const InfoPopover: React.FC<ItemProps & { name: string }> = (props) => {
+  const imageUrl = `${process.env.PUBLIC_URL}/assets/images/${props.name}.png`;
+
   return (
     <Popover trigger="hover">
       <PopoverTrigger>
@@ -58,13 +60,15 @@ const InfoPopover: React.FC<ItemProps & { name: string }> = (props) => {
         <PopoverFooter borderColor="gray.500">
           <ButtonGroup size="sm">
             <Tooltip hasArrow label="Open source" bg="gray.300" color="black">
-              <Link href={`${process.env.PUBLIC_URL}/assets/images/${props.name}.png`} isExternal>
+              <Link href={imageUrl} isExternal>
                 <IconButton colorScheme="gray" aria-label="Open source" icon={<FaExternalLinkAlt />} />
               </Link>
             </Tooltip>
 
             <Tooltip hasArrow label="Save image" bg="gray.300" color="black">
-              <IconButton isDisabled colorScheme="green" aria-label="Save image" icon={<FaSave />} />
+              <Link href={imageUrl} download>
+                <IconButton colorScheme="green" aria-label="Save image" icon={<FaSave />} />
+              </Link>
             </Tooltip>
           </ButtonGroup>
         </PopoverFooter>
