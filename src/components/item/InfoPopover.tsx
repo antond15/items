@@ -19,7 +19,7 @@ import { FaExternalLinkAlt, FaSave } from 'react-icons/fa';
 import { ItemProps } from '../../typings/item';
 import { tags } from '../../data/tags';
 
-const InfoPopover: React.FC<ItemProps> = (props) => {
+const InfoPopover: React.FC<ItemProps & { name: string }> = (props) => {
   return (
     <Popover trigger="hover">
       <PopoverTrigger>
@@ -35,8 +35,8 @@ const InfoPopover: React.FC<ItemProps> = (props) => {
           <>
             {props.label}
             <Flex mt={1.5} wrap="wrap">
-              {props.tags.map((tagName, key) => {
-                const tag = tags[tagName];
+              {props.tags.map((name, key) => {
+                const tag = tags[name];
                 return (
                   tag && (
                     <Tag key={key} size="sm" bg={tag.color} mr={0.5} mt={0.5}>
@@ -58,7 +58,7 @@ const InfoPopover: React.FC<ItemProps> = (props) => {
         <PopoverFooter borderColor="gray.500">
           <ButtonGroup size="sm">
             <Tooltip hasArrow label="Open source" bg="gray.300" color="black">
-              <Link href={props.source} isExternal>
+              <Link href={`${process.env.PUBLIC_URL}/assets/images/${props.name}.png`} isExternal>
                 <IconButton colorScheme="gray" aria-label="Open source" icon={<FaExternalLinkAlt />} />
               </Link>
             </Tooltip>
