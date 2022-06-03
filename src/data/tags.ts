@@ -25,4 +25,20 @@ export const tags: TagInterface = {
     label: 'Ammunition',
     color: 'yellow.400',
   },
+  toy: {
+    label: 'Toy',
+    color: 'teal.200',
+  },
+  cloth: {
+    label: 'Cloth',
+    color: 'teal.50',
+  },
+  medical: {
+    label: 'Medical',
+    color: 'red.600',
+  },
+  other: {
+    label: 'Other',
+    color: 'gray.50',
+  },
 };
