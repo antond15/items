@@ -4,7 +4,7 @@ export const items: ItemProps[] = [
   {
     label: 'Big slice of onion',
     source: 'https://cdn.discordapp.com/attachments/751544501377695764/981651305103769610/onion.png',
-    tags: ['food', 'fruit'],
+    tags: ['vegetable', 'food'],
     description: 'The onion is a vegetable that is the most widely cultivated species of the genus Allium.',
   },
   {
@@ -15,7 +15,7 @@ export const items: ItemProps[] = [
   {
     label: 'Ammo 9mm',
     source: 'https://cdn.discordapp.com/attachments/751544501377695764/981651305703567421/ammo-9.png',
-    tags: ['food', 'fruit'],
+    tags: ['ammo', 'weapons'],
   },
   {
     label: 'Among Us',
