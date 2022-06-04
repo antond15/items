@@ -22,15 +22,25 @@ type Props = {
 };
 
 const SearchBar: React.FC<Props> = (props) => {
+  const tagDataArr = Object.keys(tagData);
+
   const [ascending, setAscending] = useState(true);
   const [query, setQuery] = useState('');
+  const [tags, setTags] = useState(tagDataArr);
 
-  const tagDataArr = Object.keys(tagData);
+  const handleTags = (e: any) => {
+    const name: string = e.currentTarget.value;
+    if (e.currentTarget.ariaChecked === 'false') {
+      setTags([...tags, name]);
+    } else {
+      setTags(tags.filter((tag) => tag !== name));
+    }
+  };
 
   const handleItems = () => {
     const result = Object.keys(itemData).filter((key) => {
       const item = itemData[key];
-      return item.label.toLowerCase().includes(query);
+      return item.label.toLowerCase().includes(query) && item.tags.some((element) => tags.includes(element));
     });
 
     ascending ? result.sort() : result.reverse();
@@ -78,7 +88,14 @@ const SearchBar: React.FC<Props> = (props) => {
                   {tagDataArr.map((name, key) => {
                     const tag = tagData[name];
                     return (
-                      <MenuItemOption key={key} _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value={name} lineHeight={1} onClick={() => console.log('cscs')}>
+                      <MenuItemOption
+                        key={key}
+                        _hover={{ bg: 'gray.600' }}
+                        _focus={{ bg: 'gray.600' }}
+                        value={name}
+                        lineHeight={1}
+                        onClick={handleTags}
+                      >
                         <Tag size="sm" bg={tag.color}>
                           {tag.label}
                         </Tag>
