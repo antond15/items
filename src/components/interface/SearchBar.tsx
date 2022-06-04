@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
-import { Flex, Box, Input, IconButton, HStack, MenuButton, Menu, MenuList, MenuOptionGroup, MenuItemOption, Tag } from '@chakra-ui/react';
+import {
+  Flex,
+  Box,
+  Input,
+  IconButton,
+  HStack,
+  MenuButton,
+  Menu,
+  MenuList,
+  MenuOptionGroup,
+  MenuItemOption,
+  Tag,
+  MenuDivider,
+} from '@chakra-ui/react';
 import { FaSortAlphaDown, FaSortAlphaUp, FaFilter } from 'react-icons/fa';
 import { itemData } from '../../data/items';
 import { tagData } from '../../data/tags';
@@ -38,7 +51,22 @@ const SearchBar: React.FC<Props> = (props) => {
           <Menu closeOnSelect={false}>
             <MenuButton as={IconButton} size="sm" aria-label="Filter options" fontSize="md" icon={<FaFilter />} />
             <MenuList bg="gray.700" borderColor="gray.500" color="gray.100">
-              <MenuOptionGroup type="checkbox" defaultValue={tagDataArr}>
+              <MenuOptionGroup type="radio" title="Order" textAlign="left" defaultValue="asc">
+                <MenuItemOption _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value="asc" onClick={() => setAscending(true)}>
+                  <HStack justify="space-between">
+                    <span>Ascending</span>
+                    <FaSortAlphaDown />
+                  </HStack>
+                </MenuItemOption>
+                <MenuItemOption _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value="desc" onClick={() => setAscending(false)}>
+                  <HStack justify="space-between">
+                    <span>Descending</span>
+                    <FaSortAlphaUp />
+                  </HStack>
+                </MenuItemOption>
+              </MenuOptionGroup>
+              <MenuDivider />
+              <MenuOptionGroup type="checkbox" title="Tags" textAlign="left" defaultValue={tagDataArr}>
                 {tagDataArr.map((name, key) => {
                   const tag = tagData[name];
                   return (
@@ -52,13 +80,6 @@ const SearchBar: React.FC<Props> = (props) => {
               </MenuOptionGroup>
             </MenuList>
           </Menu>
-          <IconButton
-            size="sm"
-            aria-label="Search"
-            fontSize="lg"
-            icon={ascending ? <FaSortAlphaDown /> : <FaSortAlphaUp />}
-            onClick={() => setAscending(!ascending)}
-          />
         </HStack>
       </Box>
     </Flex>
