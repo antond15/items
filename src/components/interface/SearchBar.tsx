@@ -10,10 +10,11 @@ const SearchBar: React.FC = () => {
       <Box w="2xl" mt={5}>
         <HStack spacing={1}>
           <Input size="sm" placeholder="Search images..." w="smaller" color="currentcolor" bg="gray.200" border="none" borderRadius={5} />
-          <IconButton size="sm" aria-label="Search" icon={<FaSearch />} />
+          <IconButton size="sm" aria-label="Search" fontSize="md" icon={<FaSearch />} />
           <IconButton
             size="sm"
             aria-label="Search"
+            fontSize="lg"
             icon={ascending ? <FaSortAlphaDown /> : <FaSortAlphaUp />}
             onClick={() => setAscending(!ascending)}
           />

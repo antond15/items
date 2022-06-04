@@ -48,13 +48,13 @@ const InfoPopover: React.FC<ItemProps & { name: string }> = (props) => {
           <ButtonGroup size="sm">
             <Tooltip hasArrow label="Open source" bg="gray.300" color="black">
               <Link href={imageUrl} isExternal>
-                <IconButton colorScheme="gray" aria-label="Open source" icon={<FaExternalLinkAlt />} />
+                <IconButton colorScheme="gray" aria-label="Open source" icon={<FaExternalLinkAlt />} fontSize="md" />
               </Link>
             </Tooltip>
 
             <Tooltip hasArrow label="Save image" bg="gray.300" color="black">
               <Link href={imageUrl} download>
-                <IconButton colorScheme="green" aria-label="Save image" icon={<FaSave />} />
+                <IconButton colorScheme="green" aria-label="Save image" icon={<FaSave />} fontSize="md" />
               </Link>
             </Tooltip>
           </ButtonGroup>
