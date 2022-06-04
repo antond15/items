@@ -17,7 +17,9 @@ import Tags from './Tags';
 import { FaExternalLinkAlt, FaSave } from 'react-icons/fa';
 import { ItemProps } from '../../typings/item';
 
-const InfoPopover: React.FC<ItemProps & { name: string }> = (props) => {
+type Props = ItemProps & { name: string };
+
+const InfoPopover: React.FC<Props> = (props) => {
   const imageUrl = `${process.env.PUBLIC_URL}/assets/images/${props.name}.png`;
 
   return (

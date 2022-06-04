@@ -1,12 +1,16 @@
 import React from 'react';
 import { Flex, Tag } from '@chakra-ui/react';
-import { tags } from '../../data/tags';
+import { tagData } from '../../data/tags';
 
-const Tags: React.FC<{ tags: string[] }> = (props) => {
+type Props = {
+  tags: string[];
+};
+
+const Tags: React.FC<Props> = (props) => {
   return (
     <Flex mt={1.5} wrap="wrap">
-      {props.tags.map((name, key) => {
-        const tag = tags[name];
+      {props.tags?.map((name, key) => {
+        const tag = tagData[name];
         return (
           tag && (
             <Tag key={key} size="sm" bg={tag.color} mr={0.5} mt={0.5}>

@@ -1,6 +1,6 @@
 import { ItemInterface } from '../typings/item';
 
-export const items: ItemInterface = {
+export const itemData: ItemInterface = {
   onion: {
     label: 'Onion',
     tags: ['vegetable', 'food'],

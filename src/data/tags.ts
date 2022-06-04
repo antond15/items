@@ -1,6 +1,6 @@
 import { TagInterface } from '../typings/tag';
 
-export const tags: TagInterface = {
+export const tagData: TagInterface = {
   food: {
     label: 'Food',
     color: 'orange.500',
