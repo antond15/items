@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Flex,
   Box,
@@ -23,16 +23,23 @@ type Props = {
 
 const SearchBar: React.FC<Props> = (props) => {
   const [ascending, setAscending] = useState(true);
+  const [query, setQuery] = useState('');
+
   const tagDataArr = Object.keys(tagData);
 
-  const handleSearch = (e: any) => {
-    const query = e.target.value.toLowerCase();
+  const handleItems = () => {
     const result = Object.keys(itemData).filter((key) => {
       const item = itemData[key];
-      return item.label.toLowerCase().includes(query) /* || item.description?.includes(query) */;
+      return item.label.toLowerCase().includes(query);
     });
+
+    ascending ? result.sort() : result.reverse();
     props.setItems(result);
   };
+
+  useEffect(() => {
+    handleItems();
+  });
 
   return (
     <Flex justifyContent="center" alignContent="center">
@@ -46,7 +53,7 @@ const SearchBar: React.FC<Props> = (props) => {
             bg="gray.200"
             border="none"
             borderRadius={5}
-            onChange={handleSearch}
+            onChange={(e: any) => setQuery(e.target.value.toLowerCase())}
           />
           <Menu closeOnSelect={false}>
             <MenuButton as={IconButton} size="sm" aria-label="Filter options" fontSize="md" icon={<FaFilter />} />
