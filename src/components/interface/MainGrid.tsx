@@ -12,7 +12,7 @@ const MainGrid: React.FC<Props> = (props) => {
       <Box w="2xl" h={800} mb={5} mt={2} overflowY="auto" background="gray.800" borderRadius={5} border="solid 15px" borderColor="gray.800">
         <Flex justifyContent="center">
           <SimpleGrid columns={5} spacingX="5px" spacingY="5px" w="fit-content">
-            {props.items.map((name, key) => {
+            {props.items.sort().map((name, key) => {
               return <Item key={key} name={name} />;
             })}
           </SimpleGrid>
