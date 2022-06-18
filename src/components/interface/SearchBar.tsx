@@ -25,7 +25,6 @@ const SearchBar: React.FC<Props> = (props) => {
   const itemDataArr = Object.keys(itemData);
   const tagDataArr = Object.keys(tagData);
 
-  const setItems = props.setItems; // for convenience
   const [query, setQuery] = useState('');
   const [order, setOrder] = useState('asc');
   const [tags, setTags] = useState(tagDataArr);
@@ -48,7 +47,8 @@ const SearchBar: React.FC<Props> = (props) => {
     result.sort();
     if (order === 'desc') result.reverse();
 
-    setItems(result);
+    props.setItems(result);
+  // eslint-disable-next-line
   }, [query, order, tags]);
 
   return (
