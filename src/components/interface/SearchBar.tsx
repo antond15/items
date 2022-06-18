@@ -50,12 +50,12 @@ const SearchBar: React.FC<Props> = (props) => {
     if (order === 'desc') result.reverse();
 
     props.setItems(result);
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [query, order, tags]);
 
   return (
     <Flex justifyContent="center" alignContent="center">
-      <Flex w="100%" mt={5} justifyContent='space-between'>
+      <Flex w="100%" mt={5} justifyContent="space-between">
         <HStack spacing={1}>
           <Input
             size="sm"
@@ -111,8 +111,8 @@ const SearchBar: React.FC<Props> = (props) => {
           </Box>
         </HStack>
         <Tooltip hasArrow label="Source code" bg="gray.300" color="black">
-          <Link href='https://github.com/antond15/items' isExternal>
-            <IconButton aria-label='Source code' icon={<FaGithub/>} size="sm" fontSize="xl" />
+          <Link href="https://github.com/antond15/items" isExternal>
+            <IconButton aria-label="Source code" icon={<FaGithub />} size="sm" fontSize="xl" />
           </Link>
         </Tooltip>
       </Flex>
