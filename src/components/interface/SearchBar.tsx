@@ -12,8 +12,10 @@ import {
   MenuItemOption,
   Tag,
   MenuDivider,
+  Tooltip,
+  Link,
 } from '@chakra-ui/react';
-import { FaSortAlphaDown, FaSortAlphaUp, FaFilter } from 'react-icons/fa';
+import { FaSortAlphaDown, FaSortAlphaUp, FaFilter, FaGithub } from 'react-icons/fa';
 import { itemData } from '../../data/items';
 import { tagData } from '../../data/tags';
 
@@ -53,7 +55,7 @@ const SearchBar: React.FC<Props> = (props) => {
 
   return (
     <Flex justifyContent="center" alignContent="center">
-      <Box w="100%" mt={5}>
+      <Flex w="100%" mt={5} justifyContent='space-between'>
         <HStack spacing={1}>
           <Input
             size="sm"
@@ -67,7 +69,7 @@ const SearchBar: React.FC<Props> = (props) => {
           />
           <Box>
             <Menu closeOnSelect={false}>
-              <MenuButton as={IconButton} size="sm" aria-label="Filter options" fontSize="md" icon={<FaFilter />} />
+              <MenuButton as={IconButton} aria-label="Filter options" icon={<FaFilter />} size="sm" fontSize="md" />
               <MenuList bg="gray.700" borderColor="gray.500" color="gray.100">
                 <MenuOptionGroup type="radio" title="Order" textAlign="left" defaultValue="asc">
                   <MenuItemOption _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value="asc" onClick={() => setOrder('asc')}>
@@ -108,7 +110,12 @@ const SearchBar: React.FC<Props> = (props) => {
             </Menu>
           </Box>
         </HStack>
-      </Box>
+        <Tooltip hasArrow label="Source code" bg="gray.300" color="black">
+          <Link href='https://github.com/antond15/items' isExternal>
+            <IconButton aria-label='Source code' icon={<FaGithub/>} size="sm" fontSize="xl" />
+          </Link>
+        </Tooltip>
+      </Flex>
     </Flex>
   );
 };
