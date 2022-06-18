@@ -53,7 +53,7 @@ const SearchBar: React.FC<Props> = (props) => {
 
   return (
     <Flex justifyContent="center" alignContent="center">
-      <Box w="2xl" mt={5}>
+      <Box w="100%" mt={5}>
         <HStack spacing={1}>
           <Input
             size="sm"
