@@ -22,10 +22,12 @@ type Props = {
 };
 
 const SearchBar: React.FC<Props> = (props) => {
+  const itemDataArr = Object.keys(itemData);
   const tagDataArr = Object.keys(tagData);
 
-  const [ascending, setAscending] = useState(true);
+  const setItems = props.setItems; // for convenience
   const [query, setQuery] = useState('');
+  const [order, setOrder] = useState('asc');
   const [tags, setTags] = useState(tagDataArr);
 
   const handleTags = (e: any) => {
@@ -37,19 +39,17 @@ const SearchBar: React.FC<Props> = (props) => {
     }
   };
 
-  const handleItems = () => {
-    const result = Object.keys(itemData).filter((key) => {
+  useEffect(() => {
+    const result = itemDataArr.filter((key) => {
       const item = itemData[key];
-      return item.label.toLowerCase().includes(query) && item.tags.some((element) => tags.includes(element));
+      return item.label.toLowerCase().includes(query) && item.tags.some((tag) => tags.includes(tag));
     });
 
-    ascending ? result.sort() : result.reverse();
-    props.setItems(result);
-  };
+    result.sort();
+    if (order === 'desc') result.reverse();
 
-  useEffect(() => {
-    handleItems();
-  });
+    setItems(result);
+  }, [query, order, tags]);
 
   return (
     <Flex justifyContent="center" alignContent="center">
@@ -70,13 +70,13 @@ const SearchBar: React.FC<Props> = (props) => {
               <MenuButton as={IconButton} size="sm" aria-label="Filter options" fontSize="md" icon={<FaFilter />} />
               <MenuList bg="gray.700" borderColor="gray.500" color="gray.100">
                 <MenuOptionGroup type="radio" title="Order" textAlign="left" defaultValue="asc">
-                  <MenuItemOption _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value="asc" onClick={() => setAscending(true)}>
+                  <MenuItemOption _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value="asc" onClick={() => setOrder('asc')}>
                     <HStack justify="space-between">
                       <span>Ascending</span>
                       <FaSortAlphaDown />
                     </HStack>
                   </MenuItemOption>
-                  <MenuItemOption _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value="desc" onClick={() => setAscending(false)}>
+                  <MenuItemOption _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value="desc" onClick={() => setOrder('desc')}>
                     <HStack justify="space-between">
                       <span>Descending</span>
                       <FaSortAlphaUp />
@@ -89,12 +89,12 @@ const SearchBar: React.FC<Props> = (props) => {
                     const tag = tagData[name];
                     return (
                       <MenuItemOption
-                        key={key}
                         _hover={{ bg: 'gray.600' }}
                         _focus={{ bg: 'gray.600' }}
                         _active={{ bg: 'gray.600' }}
-                        value={name}
                         lineHeight={1}
+                        key={key}
+                        value={name}
                         onClick={handleTags}
                       >
                         <Tag size="sm" bg={tag.color}>
