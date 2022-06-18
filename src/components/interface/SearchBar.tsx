@@ -92,6 +92,7 @@ const SearchBar: React.FC<Props> = (props) => {
                         key={key}
                         _hover={{ bg: 'gray.600' }}
                         _focus={{ bg: 'gray.600' }}
+                        _active={{ bg: 'gray.600' }}
                         value={name}
                         lineHeight={1}
                         onClick={handleTags}
