@@ -37,6 +37,10 @@ export const tagData: TagInterface = {
     label: 'Medical',
     color: 'red.600',
   },
+  furniture: {
+    label: 'Furniture',
+    color: 'lime.900',
+  },
   other: {
     label: 'Other',
     color: 'gray.50',
