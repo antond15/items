@@ -105,7 +105,7 @@ export const itemData: ItemInterface = {
 	
 	'lindenportrait': {
 		label: 'Linden\'s Portrait',
-		tags: ['decoration', 'photo', 'furniture', 'australian'],
-		description: 'A portrait of the glorious Linden, who wouldn\'t want a photo of Linden?.',
+		tags: ['furniture', 'other'],
+		description: 'A portrait of the glorious Linden, who wouldn\'t want a photo of Linden?',
 	},
 };
