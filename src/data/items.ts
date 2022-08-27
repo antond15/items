@@ -102,4 +102,10 @@ export const itemData: ItemInterface = {
 		tags: ['medical', 'cloth'],
 		description: 'Woven strip of material with absorbent barrier to prevent adhering to wounds.',
 	},
+	
+	'lindenportrait': {
+		label: 'Linden\'s Portrait',
+		tags: ['furniture', 'other'],
+		description: 'A portrait of the glorious Linden, who wouldn\'t want a photo of Linden?',
+	},
 };
