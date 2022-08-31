@@ -39,7 +39,7 @@ export const tagData: TagInterface = {
   },
   furniture: {
     label: 'Furniture',
-    color: 'lime.900',
+    color: 'green.300',
   },
   other: {
     label: 'Other',
