@@ -1,4 +1,3 @@
-import React from 'react';
 import { Stack, Image } from '@chakra-ui/react';
 import { ItemProps } from '../../typings/item';
 import InfoPopover from './InfoPopover';

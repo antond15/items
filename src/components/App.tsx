@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Flex, Box } from '@chakra-ui/react';
 import MainGrid from './interface/MainGrid';
 import SearchBar from './interface/SearchBar';

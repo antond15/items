@@ -1,4 +1,3 @@
-import React from 'react';
 import { SimpleGrid, Flex, Box } from '@chakra-ui/react';
 import Item from '../item/Item';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Flex, Tag } from '@chakra-ui/react';
 import { tagData } from '../../data/tags';
 
