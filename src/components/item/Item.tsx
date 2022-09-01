@@ -12,7 +12,7 @@ const Item: React.FC<Props> = (props) => {
 
   return (
     <Stack w="100px" h="125px" background="gray.700" borderRadius={5} overflow="hidden" spacing={0}>
-      <Image src={`/assets/images/${props.name}.png`} alt={items.label} w="100px" h="100px" objectFit="contain" />
+      <Image src={`/images/${props.name}.png`} alt={items.label} w="100px" h="100px" objectFit="contain" />
       <InfoPopover name={props.name} {...items} />
     </Stack>
   );
