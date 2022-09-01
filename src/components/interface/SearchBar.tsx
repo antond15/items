@@ -12,7 +12,6 @@ import {
   MenuItemOption,
   Tag,
   MenuDivider,
-  Tooltip,
   Link,
 } from '@chakra-ui/react';
 import { FaSortAlphaDown, FaSortAlphaUp, FaFilter, FaGithub } from 'react-icons/fa';
@@ -21,6 +20,20 @@ import { tagData } from '../../data/tags';
 
 type Props = {
   setItems: (items: string[]) => void;
+};
+
+const whiteThemed = {
+  bg: 'gray.200',
+  color: 'gray.800',
+  _hover: {
+    bg: 'gray.300',
+  },
+  _focus: {
+    bg: 'gray.300',
+  },
+  _active: {
+    bg: 'gray.300',
+  },
 };
 
 const SearchBar: React.FC<Props> = (props) => {
@@ -50,7 +63,6 @@ const SearchBar: React.FC<Props> = (props) => {
     if (order === 'desc') result.reverse();
 
     props.setItems(result);
-    // eslint-disable-next-line
   }, [query, order, tags]);
 
   return (
@@ -58,27 +70,29 @@ const SearchBar: React.FC<Props> = (props) => {
       <Flex w="100%" mt={5} justifyContent="space-between">
         <HStack spacing={1}>
           <Input
+            {...whiteThemed}
             size="sm"
-            placeholder="Search images..."
-            w="smaller"
-            color="currentcolor"
-            bg="gray.200"
-            border="none"
+            w="sx"
             borderRadius={5}
+            fontWeight="medium"
+            placeholder="Search images..."
+            _placeholder={{
+              color: 'gray.800',
+            }}
             onChange={(e: any) => setQuery(e.target.value.toLowerCase())}
           />
           <Box>
             <Menu closeOnSelect={false}>
-              <MenuButton as={IconButton} aria-label="Filter options" icon={<FaFilter />} size="sm" fontSize="md" />
-              <MenuList bg="gray.700" borderColor="gray.500" color="gray.100">
+              <MenuButton as={IconButton} aria-label="Filter options" icon={<FaFilter />} size="sm" fontSize="md" {...whiteThemed} />
+              <MenuList>
                 <MenuOptionGroup type="radio" title="Order" textAlign="left" defaultValue="asc">
-                  <MenuItemOption _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value="asc" onClick={() => setOrder('asc')}>
+                  <MenuItemOption value="asc" onClick={() => setOrder('asc')}>
                     <HStack justify="space-between">
                       <span>Ascending</span>
                       <FaSortAlphaDown />
                     </HStack>
                   </MenuItemOption>
-                  <MenuItemOption _hover={{ bg: 'gray.600' }} _focus={{ bg: 'gray.600' }} value="desc" onClick={() => setOrder('desc')}>
+                  <MenuItemOption value="desc" onClick={() => setOrder('desc')}>
                     <HStack justify="space-between">
                       <span>Descending</span>
                       <FaSortAlphaUp />
@@ -90,16 +104,8 @@ const SearchBar: React.FC<Props> = (props) => {
                   {tagDataArr.map((name, key) => {
                     const tag = tagData[name];
                     return (
-                      <MenuItemOption
-                        _hover={{ bg: 'gray.600' }}
-                        _focus={{ bg: 'gray.600' }}
-                        _active={{ bg: 'gray.600' }}
-                        lineHeight={1}
-                        key={key}
-                        value={name}
-                        onClick={handleTags}
-                      >
-                        <Tag size="sm" bg={tag.color}>
+                      <MenuItemOption lineHeight={1} key={key} value={name} onClick={handleTags}>
+                        <Tag size="sm" bg={tag.color} color="gray.800">
                           {tag.label}
                         </Tag>
                       </MenuItemOption>
@@ -110,11 +116,9 @@ const SearchBar: React.FC<Props> = (props) => {
             </Menu>
           </Box>
         </HStack>
-        <Tooltip hasArrow label="Source code" bg="gray.300" color="black">
-          <Link href="https://github.com/antond15/items" isExternal>
-            <IconButton aria-label="Source code" icon={<FaGithub />} size="sm" fontSize="xl" />
-          </Link>
-        </Tooltip>
+        <Link href="https://github.com/antond15/items" isExternal>
+          <IconButton aria-label="Source code" icon={<FaGithub />} size="sm" fontSize="xl" {...whiteThemed} />
+        </Link>
       </Flex>
     </Flex>
   );

@@ -12,7 +12,7 @@ const Tags: React.FC<Props> = (props) => {
         const tag = tagData[name];
         return (
           tag && (
-            <Tag key={key} size="sm" bg={tag.color} mt={0.5} _notLast={{ mr: 0.5 }}>
+            <Tag key={key} size="sm" bg={tag.color} mt={0.5} _notLast={{ mr: 0.5 }} color="gray.800">
               {tag.label}
             </Tag>
           )

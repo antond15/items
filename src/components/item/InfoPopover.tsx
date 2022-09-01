@@ -29,10 +29,10 @@ const InfoPopover: React.FC<Props> = (props) => {
         </Box>
       </PopoverTrigger>
 
-      <PopoverContent textAlign="left" bg="gray.700" borderColor="gray.500">
-        <PopoverArrow bg="gray.700" />
+      <PopoverContent textAlign="left">
+        <PopoverArrow />
 
-        <PopoverHeader fontWeight="semibold" color="gray.300" border="none">
+        <PopoverHeader fontWeight="medium" border="none">
           <>
             {props.label}
             <Tags tags={props.tags} />
@@ -40,22 +40,22 @@ const InfoPopover: React.FC<Props> = (props) => {
         </PopoverHeader>
 
         {props.description && (
-          <PopoverBody color="gray.100" pt={0}>
+          <PopoverBody pt={0}>
             <Box>{props.description}</Box>
           </PopoverBody>
         )}
 
-        <PopoverFooter borderColor="gray.500">
+        <PopoverFooter>
           <ButtonGroup size="sm">
-            <Tooltip hasArrow label="Open source" bg="gray.300" color="black">
-              <Link href={imageUrl} isExternal>
-                <IconButton colorScheme="gray" aria-label="Open source" icon={<FaExternalLinkAlt />} fontSize="md" />
+            <Tooltip hasArrow label="Save image" color="gray.800">
+              <Link href={imageUrl} download>
+                <IconButton colorScheme="green" aria-label="Save image" icon={<FaSave />} fontSize="md" bg="green.400" />
               </Link>
             </Tooltip>
 
-            <Tooltip hasArrow label="Save image" bg="gray.300" color="black">
-              <Link href={imageUrl} download>
-                <IconButton colorScheme="green" aria-label="Save image" icon={<FaSave />} fontSize="md" />
+            <Tooltip hasArrow label="Open source" color="gray.800">
+              <Link href={imageUrl} isExternal>
+                <IconButton colorScheme="gray" aria-label="Open source" icon={<FaExternalLinkAlt />} fontSize="md" variant="ghost" />
               </Link>
             </Tooltip>
           </ButtonGroup>
