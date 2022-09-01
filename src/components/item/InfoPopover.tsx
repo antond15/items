@@ -20,7 +20,7 @@ import { ItemProps } from '../../typings/item';
 type Props = ItemProps & { name: string };
 
 const InfoPopover: React.FC<Props> = (props) => {
-  const imageUrl = `${process.env.PUBLIC_URL}/assets/images/${props.name}.png`;
+  const imageUrl = `/assets/images/${props.name}.png`;
 
   return (
     <Popover trigger="hover">
